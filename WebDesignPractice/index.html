@@ -35,20 +35,23 @@
     <h2 class="centered-text">Стоимость умных функций</h2>
     <h3 style="text-align: center;">В мобильном приложении "Мой POWERNET"</h3>
 
+    <div class="container pt-4 pt-lg-5">
+       <div class="custom-nav">
+        <button class="prev">Prev</button>
+        <button class="next">Next</button>
+      </div>
     <div class="owl-carousel">
+      <div class="container pt-5">
         <div class="row">
-            <div class="col-12 col-md-4 text-center">
+          <div class="col-12 col-md-4 text-center">
             <img src="images/slide1.png"/>
           </div>
-          <div class="col-0 col-1 text-center"></div>
-          <div class="col-12 col-6 col-xl-7">
+          <div class="col-0 col-md-1 text-center"></div>
+          <div class="col-12 col-md-7 col-xl-6">
             <img src="images/face.svg" />
             <h2>Распознавание лиц</h2>
             <p>
-              Сам откроет дверь подъезда, ключ не нужен.
-            </p>
-            <p>
-              Каждый раз, когда вы открываете ключом —<br />домофон вас
+              Сам откроет дверь подъезда, ключ не нужен. Каждый раз, когда вы открываете ключом —<br />домофон вас
               фотографирует.
             </p>
             <p>Как добавить фото для распознавания?</p>
@@ -61,6 +64,7 @@
             </p>
           </div>
         </div>
+      </div>
         <div class="container pt-5">
           <div class="row">
             <div class="col-12 col-md-4 text-center">
@@ -142,16 +146,45 @@
           </div>
         </div>
       </div>
-
-
-
+    </div>
+      <div class="custom-dots"></div>
+    </div>
 
       <script>
-        $(document).ready(function () {
-          $(".owl-carousel").owlCarousel();
+        $(document).ready(function(){
+            var owl = $(".owl-carousel").owlCarousel({
+                items: 1,
+                nav: false,
+                dots: true,
+                loop: false,
+                onChanged: function(event) {
+                    $(".custom-dots").find(".active").removeClass("active");
+                    $(".custom-dots").find("span").eq(event.item.index).addClass("active");
+                }
+            });
+        
+            $(".custom-nav .prev").click(function(){
+                owl.trigger("prev.owl.carousel");
+            });
+        
+            $(".custom-nav .next").click(function(){
+                owl.trigger("next.owl.carousel");
+            });
+        
+            var totalSlides = $(".owl-carousel .owl-item").length;
+            for (var i = 0; i < totalSlides; i++) {
+                $(".custom-dots").append("<span></span>");
+            }
+            $(".custom-dots span:first").addClass("active");
+        
+            $(".custom-dots span").click(function(){
+                var index = $(this).index();
+                owl.trigger("to.owl.carousel", [index, 300]);
+                $(".custom-dots").find(".active").removeClass("active");
+                $(this).addClass("active");
+            });
         });
-      </script>
-      </div>
+        </script>
 
 <div class="container pt-4 pt-lg-5 text-center">
     <div class="row">
