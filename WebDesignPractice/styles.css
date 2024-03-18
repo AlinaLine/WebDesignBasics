@@ -13,3 +13,52 @@
         padding: 20px 0;
         color: white;
       }
+
+      .custom-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    
+    .custom-nav button {
+        cursor: pointer;
+        background: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 5px 15px;
+    }
+    
+    .prev, .next {
+      justify-content:center;
+        background-color: #f8f9fa;
+        border: none;
+        padding: 10px 20px;
+    }
+    
+    .owl-carousel {
+        position: relative;
+	      display: block;
+	      box-sizing: border-box;
+    }
+    
+    .custom-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .custom-dots span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    
+    .custom-dots span.active {
+        background: #f00;
+    }
